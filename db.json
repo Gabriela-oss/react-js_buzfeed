@@ -1,0 +1,97 @@
+{
+	"quizId": "x42kew",
+	"title": "What cheese are you?",
+	"Subtitle": "This quiz isn't cheesy or anything...",
+	"content": [
+		{
+			"id": "0",
+			"text": "Pick a vacation destination: ",
+			"questions": [
+				{
+					"text": "New York",
+					"image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAh1KOiWSrA7tafwHXoogLhTteUMrkHV-mYh9FBArp&s",
+					"alt": "photo of the empire state building during daytime",
+					"credit": "Oliver Nibett"
+				},
+				{
+					"text": "Svyatoslav",
+					"image": "https://images.unsplash.com/photo-1676237488310-6e06a1f8aac0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8M3x8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=60",
+					"alt": "una iglesia con un campanorio frente a una montaña nevada",
+					"credit": "Teslyak"
+				},
+				{
+					"text": "New Orleans",
+					"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/New_Orleans_header_collage.png/250px-New_Orleans_header_collage.png",
+					"alt": "City and church",
+					"credit": "Jæo Francisco"
+				},
+				{
+					"text": "France",
+					"image": "https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg",
+					"alt": "Photography of Buildings and Canal during Nighttime",
+					"credit": "Pierre Blanché"
+				}
+			]
+		},
+		{
+			"id": "1",
+			"title": "Pick some food:",
+			"questions": [
+				{
+					"text": "Pizza",
+					"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/800px-Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+					"alt": "Cheese and peper",
+					"credit": "Alan Hardman"
+				},
+				{
+					"text": "Sandwich",
+					"image": "https://www.recetasderechupete.com/wp-content/uploads/2019/10/Sandwich-club-presentacion.jpg",
+					"alt": "Sandwich with tomato, lettuce, cheese, chicken",
+					"credit": "Eaters Collective"
+				},
+				{
+					"text": "Pasta",
+					"image": "https://images.immediate.co.uk/production/volatile/sites/30/2013/05/Puttanesca-fd5810c.jpg?quality=90&webp=true&resize=600,545",
+					"alt": "Pasta with tomato saulce",
+					"credit": "Mgg Vitcharkorn"
+				},
+				{
+					"text": "Hamburguer",
+					"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hamburger_%28black_bg%29.jpg/640px-Hamburger_%28black_bg%29.jpg",
+					"alt": "Hamburguer with lettuce and meet",
+					"credit": "Gabs"
+				}
+			]
+		},
+		{
+			"id": "2",
+			"text": "Pick a home:",
+			"answers": [
+				{
+					"text": "Modern",
+					"image": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+					"alt": "White with big windows",
+					"credit": "Donate"
+				},
+				{
+					"text": "Traditional",
+					"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Shirakawago_Japanese_Old_Village_001.jpg/120px-Shirakawago_Japanese_Old_Village_001.jpg",
+					"alt": "focus photography",
+					"credit": "Jeffrey Hays"
+				},
+				{
+					"text": "House",
+					"image": "https://i.pinimg.com/550x/74/76/67/74766754ae1957f60985a37fe27752d5.jpg",
+					"alt": "Two floors house, white color",
+					"credit": "Gabs"
+				},
+				{
+					"text": "Mountains",
+					"image": "https://www.wallpaperflare.com/static/245/797/194/forest-nature-cabin-brown-wallpaper.jpg",
+					"alt": "Brown woodern cabin infront of forest",
+					"credit": "Euraletta"
+				}
+			]
+		}
+	]
+}
