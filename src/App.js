@@ -7,6 +7,9 @@ import QuestionsBlock from "./components/QuestionsBlock";
 import styles from "./index.css";
 const App = () => {
 	const [quiz, setQuiz] = useState(false);
+	const [chosenAswerItems, setChosenAswerItems] = useState([]);
+	const [unansweredQuestionIds, setUnansweredQuestionIds] = useState([]);
+
 	const fetchData = async () => {
 		try {
 			const response = await fetch("http://localhost:8000/quiz");
@@ -22,12 +25,27 @@ const App = () => {
 		fetchData();
 	}, []);
 
+	useEffect(() => {
+		const unansweredIds = quiz?.content?.map(({ id }) => id);
+		setUnansweredQuestionIds(unansweredIds);
+	}, [quiz]);
+
+	console.log(quiz);
+	console.log(unansweredQuestionIds);
+
 	return (
 		<div className='app'>
 			<Title title={quiz?.title} subtitle={quiz?.subtitle} />
 			{quiz &&
 				quiz?.content.map((contentItem) => (
-					<QuestionsBlock key={contentItem.id} quizItem={contentItem} />
+					<QuestionsBlock
+						key={contentItem.id}
+						quizItem={contentItem}
+						setChosenAswerItems={setChosenAswerItems}
+						chosenAswerItems={chosenAswerItems}
+						setUnansweredQuestionIds={setUnansweredQuestionIds}
+						unansweredQuestionIds={unansweredQuestionIds}
+					/>
 				))}
 		</div>
 	);

@@ -1,7 +1,13 @@
 //components
 import QuestionBlock from "./QuestionBlock";
 
-const QuestionsBlock = ({ quizItem }) => {
+const QuestionsBlock = ({
+	quizItem,
+	setChosenAswerItems,
+	chosenAswerItems,
+	setUnansweredQuestionIds,
+	unansweredQuestionIds,
+}) => {
 	return (
 		<>
 			<h2 className='question-title' id={quizItem.id}>
@@ -9,7 +15,17 @@ const QuestionsBlock = ({ quizItem }) => {
 			</h2>
 			<div className='questions-container'>
 				{quizItem.questions.map((question, index) => {
-					return <QuestionBlock key={index} question={question} />;
+					return (
+						<QuestionBlock
+							key={index}
+							quizItemId={quizItem.id}
+							setChosenAswerItems={setChosenAswerItems}
+							question={question}
+							chosenAswerItems={chosenAswerItems}
+							setUnansweredQuestionIds={setUnansweredQuestionIds}
+							unansweredQuestionIds={unansweredQuestionIds}
+						/>
+					);
 				})}
 			</div>
 		</>

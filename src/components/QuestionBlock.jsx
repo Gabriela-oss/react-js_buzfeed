@@ -1,8 +1,25 @@
 import React from "react";
 
-const QuestionBlock = ({ question }) => {
+const QuestionBlock = ({
+	question,
+	setChosenAswerItems,
+	chosenAswerItems,
+	setUnansweredQuestionIds,
+	unansweredQuestionIds,
+	quizItemId,
+}) => {
+	const handleClick = () => {
+		setChosenAswerItems((prev) => [...prev, question.text]);
+		setUnansweredQuestionIds(
+			unansweredQuestionIds.filter((id) => id != quizItemId)
+		);
+	};
 	return (
-		<button className='question-block'>
+		<button
+			className='question-block'
+			onClick={handleClick}
+			// disabled={!chosenAswerItems.includes(question.text)}
+		>
 			<img src={question.image} alt={question.alt} />
 			<h3>{question.text}</h3>
 			<p>
