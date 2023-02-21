@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
-const AnswerBlock = ({ answerOptions, chosenAnswers }) => {
+const AnswerBlock = ({ answerOptions, chosenAnswers }, ref) => {
 	const [result, setResult] = useState(null);
 
 	useEffect(() => {
@@ -18,11 +18,11 @@ const AnswerBlock = ({ answerOptions, chosenAnswers }) => {
 	}, [result]);
 
 	return (
-		<div id='answer-block' className='answer-block'>
+		<div ref={ref} className='answer-block'>
 			<h2>{result?.text}</h2>
 			<img src={result?.image} alt={result?.text} />
 		</div>
 	);
 };
 
-export default AnswerBlock;
+export default forwardRef(AnswerBlock);

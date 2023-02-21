@@ -1,5 +1,5 @@
 //Libs
-import { useState, useEffect } from "react";
+import { useState, useEffect, createRef } from "react";
 //Components
 import Title from "./components/Title";
 import QuestionsBlock from "./components/QuestionsBlock";
@@ -11,6 +11,13 @@ const App = () => {
 	const [chosenAswerItems, setChosenAswerItems] = useState([]);
 	const [unansweredQuestionIds, setUnansweredQuestionIds] = useState(null);
 	const [showAnswer, setShowAnswer] = useState(false);
+
+	const refs = unansweredQuestionIds?.reduce((acc, id) => {
+		acc[id] = createRef();
+		return acc;
+	}, {});
+
+	const answerRef = createRef();
 
 	const fetchData = async () => {
 		try {
@@ -33,28 +40,29 @@ const App = () => {
 	}, [quiz]);
 
 	useEffect(() => {
-		if (unansweredQuestionIds) {
+		if (chosenAswerItems.length > 0) {
+			if (showAnswer) {
+				//scroll to answered block
+				answerRef.current.scrollIntoView({ behavior: "smooth" });
+			}
 			if (
 				unansweredQuestionIds.length <= 0 &&
 				chosenAswerItems.at.length >= 1
 			) {
-				//scroll to answered block
 				setShowAnswer(true);
-				const answerBlock = document.getElementById("answer-block");
-				answerBlock?.scrollIntoView({ behavior: "smooth" });
+			} else {
+				//scroll to highest unAnsweredQuestionIds
+				const highestId = Math.min(...unansweredQuestionIds);
+				refs[highestId].current.scrollIntoView({ behavior: "smooth" });
 			}
-			//scroll to highest unAnsweredQuestionIds
-			const highestId = Math.min(...unansweredQuestionIds);
-			const highestElement = document.getElementById(highestId);
-			highestElement?.scrollIntoView({ behavior: "smooth" });
 		}
-	}, [unansweredQuestionIds, showAnswer, chosenAswerItems]);
+	}, [unansweredQuestionIds, showAnswer, chosenAswerItems, answerRef, refs]);
 
 	return (
 		<div className='app'>
 			<Title title={quiz?.title} subtitle={quiz?.subtitle} />
-			{quiz &&
-				quiz?.content.map((contentItem) => (
+			{refs &&
+				quiz?.content?.map((contentItem) => (
 					<QuestionsBlock
 						key={contentItem.id}
 						quizItem={contentItem}
@@ -62,12 +70,14 @@ const App = () => {
 						chosenAswerItems={chosenAswerItems}
 						setUnansweredQuestionIds={setUnansweredQuestionIds}
 						unansweredQuestionIds={unansweredQuestionIds}
+						ref={refs[contentItem.id]}
 					/>
 				))}
 			{showAnswer && (
 				<AnswerBlock
 					answerOptions={quiz?.answers}
 					chosenAnswers={chosenAswerItems}
+					ref={answerRef}
 				/>
 			)}
 		</div>
