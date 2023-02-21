@@ -14,11 +14,16 @@ const QuestionBlock = ({
 			unansweredQuestionIds.filter((id) => id != quizItemId)
 		);
 	};
+
+	const validPick =
+		!chosenAswerItems?.includes(question.text) &&
+		!unansweredQuestionIds?.includes(quizItemId);
+
 	return (
 		<button
 			className='question-block'
 			onClick={handleClick}
-			// disabled={!chosenAswerItems.includes(question.text)}
+			disabled={validPick}
 		>
 			<img src={question.image} alt={question.alt} />
 			<h3>{question.text}</h3>
